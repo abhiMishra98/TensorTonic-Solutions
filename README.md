@@ -21,6 +21,7 @@ Verified machine learning implementations completed on [TensorTonic](https://www
 
 | Problem | Description | Link |
 |---|---|---|
+| KV Cache Append | Append one autoregressive decoding row to key and value caches in Triton without modifying other cache positions. | https://www.tensortonic.com/problems/triton-kv-append |
 | Scaled Dot-Product Attention | Implement three-stage scaled dot-product attention in Triton with tiled scores, stable softmax, and value aggregation. | https://www.tensortonic.com/problems/triton-scaled-dot-product-attention |
 
 View my verified ML profile: [TensorTonic profile](https://www.tensortonic.com/profile/abhimishra_cetb)
