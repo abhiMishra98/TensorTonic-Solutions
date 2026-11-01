@@ -22,7 +22,7 @@ def rmsnorm_fwd_kernel(
     gamma = tl.load(gamma_ptrs, mask=mask, other=0)
     
     sq = x * x
-    ms = tl.sum(sq,axis=0,keep_dims=True,dtype=tl.float32) / N
+    ms = tl.sum(sq,axis=0,keep_dims=True) / N
     r = tl.sqrt(ms + eps)
     xhat = (x / r)*gamma
     o_ptrs = out_ptr + pId*stride_out_row + tl.arange(0,BLOCK_SIZE)
