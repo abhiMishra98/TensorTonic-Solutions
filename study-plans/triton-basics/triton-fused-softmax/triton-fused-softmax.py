@@ -12,14 +12,13 @@ def softmax_kernel(x_ptr, out_ptr, x_row_stride, out_row_stride, n_cols, BLOCK_S
     x_ptrs = x_ptr + start_n + offs_n
     mask = offs_n < n_cols
     x = tl.load(x_ptrs, mask = mask, other=float('-inf'))
-    max = tl.max(x,keep_dims = True)
+    max = tl.max(x, keep_dims = True)
     diff = x - max
     num = tl.exp(diff)
     den = tl.sum(num, axis =0, keep_dims = True)
 
     out = num/den
     out_ptrs = out_ptr + out_row_stride*pId + tl.arange(0, BLOCK_SIZE)
-    mask = offs_n < n_cols
     tl.store(out_ptrs,out, mask = mask)
     pass
 
